@@ -1,0 +1,104 @@
+@TaskifyProject_HostAddress = http://localhost:5226
+
+### Create Task - High Priority
+POST {{TaskifyProject_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Complete project documentation",
+  "description": "Write comprehensive documentation for the Task Management API",
+  "dueDate": "2025-12-31T23:59:59Z",
+  "priority": 2
+}
+
+### Create Task - Medium Priority
+POST {{TaskifyProject_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Design database schema",
+  "description": "Create ER diagram and database design",
+  "dueDate": "2025-02-15T18:00:00Z",
+  "priority": 1
+}
+
+### Create Task - Low Priority
+POST {{TaskifyProject_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Update README file",
+  "description": "Add installation instructions and usage examples",
+  "dueDate": "2025-03-01T12:00:00Z",
+  "priority": 0
+}
+
+### Get All Tasks
+GET {{TaskifyProject_HostAddress}}/api/tasks
+Accept: application/json
+
+### Get Task by ID
+GET {{TaskifyProject_HostAddress}}/api/tasks/1
+Accept: application/json
+
+### Get Filtered Tasks (by Status - Pending)
+GET {{TaskifyProject_HostAddress}}/api/tasks/filter?status=0&pageNumber=1&pageSize=10
+Accept: application/json
+
+### Get Filtered Tasks (by Priority - High)
+GET {{TaskifyProject_HostAddress}}/api/tasks/filter?priority=2&pageNumber=1&pageSize=10
+Accept: application/json
+
+### Get Filtered Tasks (by Status and Priority)
+GET {{TaskifyProject_HostAddress}}/api/tasks/filter?status=0&priority=2&pageNumber=1&pageSize=10
+Accept: application/json
+
+### Get Filtered Tasks (by Status - Completed)
+GET {{TaskifyProject_HostAddress}}/api/tasks/filter?status=1&pageNumber=1&pageSize=10
+Accept: application/json
+
+### Update Task - Change Title and Status to Completed
+PUT {{TaskifyProject_HostAddress}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Updated: Complete project documentation",
+  "status": 1
+}
+
+### Update Task - Change Priority to High
+PUT {{TaskifyProject_HostAddress}}/api/tasks/2
+Content-Type: application/json
+
+{
+  "priority": 2
+}
+
+### Update Task - Mark as Completed
+PUT {{TaskifyProject_HostAddress}}/api/tasks/3
+Content-Type: application/json
+
+{
+  "status": 1
+}
+
+### Update Task - Complete Update
+PUT {{TaskifyProject_HostAddress}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Finalized project documentation",
+  "description": "All documentation completed and reviewed",
+  "dueDate": "2025-12-30T23:59:59Z",
+  "priority": 1,
+  "status": 1
+}
+
+### Delete Task
+DELETE {{TaskifyProject_HostAddress}}/api/tasks/1
+
+### Get Old WeatherForecast Endpoint (for reference)
+GET {{TaskifyProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

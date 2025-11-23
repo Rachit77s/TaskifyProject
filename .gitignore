@@ -1,0 +1,38 @@
+# IDE and Editor files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build and temporary files
+*.log
+*.tmp
+*.temp
+
+# Environment files with sensitive data
+*.env.local
+*.env.production
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Dependency directories (already in subfolder .gitignore but good to have)
+node_modules/
+
+# .NET build outputs (already in subfolder .gitignore but good to have)
+bin/
+obj/
+*.user
+*.suo
+
+# Backup files
+*.bak
+*.backup
+*~
