@@ -118,10 +118,6 @@ cd taskify-frontend
 # Install npm dependencies
 npm install
 
-# Create environment file
-copy .env.example .env
-# For Mac/Linux: cp .env.example .env
-
 # Start the React development server
 npm start
 ```
@@ -131,7 +127,7 @@ npm start
 > 📖 **For detailed frontend setup, features, and configuration:**  
 > See [taskify-frontend/README.md](taskify-frontend/README.md)
 
-**Note:** Update `REACT_APP_API_BASE_URL` in `.env` if your backend runs on a different port.
+**Note:** The app will use `http://localhost:5226/api` by default. To change the backend URL, create a `.env` file and set `REACT_APP_API_BASE_URL`.
 
 ---
 
