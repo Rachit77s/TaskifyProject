@@ -8,15 +8,15 @@ A full-stack task management application built with .NET 10 (Backend) and React 
 
 ### **Architecture**
 ```
-┌─────────────────┐         ┌──────────────────┐         ┌─────────────────┐
-│                 │         │                  │         │                 │
-│  React Frontend │◄───────►│  .NET 10 Web API │◄───────►│  SQL Server DB  │
-│  (Port 3000)    │  HTTP   │  (Port 5226)     │  EF     │   (LocalDB)     │
-│                 │◄───────►│                  │◄───────►│                 │
-└─────────────────┘  JSON   └──────────────────┘ Core    └─────────────────┘
-        │                            │
-        │                            │
-        │                            │
++-----------------+         +------------------+         +-----------------+
+|                 |         |                  |         |                 |
+| React Frontend  |<------->|  .NET 10 Web API |<------->|  SQL Server DB  |
+|  (Port 3000)    |  HTTP   |   (Port 5226)    |   EF    |   (LocalDB)     |
+|                 |<------->|                  |<------->|                 |
++-----------------+  JSON   +------------------+  Core   +-----------------+
+        |                            |
+        |                            |
+        v                            v
    JWT Token                   JWT Validation
    Storage &                   Middleware &
    Auto-Include               Authorization
@@ -24,49 +24,54 @@ A full-stack task management application built with .NET 10 (Backend) and React 
 
 ### **Backend Architecture (Layered Design)**
 ```
-┌──────────────────────────────────────────────────────────┐
-│                         Controllers                          │
-│  (API Endpoints - TasksController, AuthController)          │
-└──────────────────────────────────────────────────────────┘
-                             │
-┌──────────────────────────────────────────────────────────┐
-│                          Services                            │
-│  (Business Logic - TaskService, AuthService)                 │
-└──────────────────────────────────────────────────────────┘
-                             │
-┌──────────────────────────────────────────────────────────┐
-│                        Repositories                          │
-│  (Data Access - TaskRepository)                              │
-└──────────────────────────────────────────────────────────┘
-                             │
-┌──────────────────────────────────────────────────────────┐
-│                       DbContext (EF Core)                    │
-│  (ApplicationDbContext)                                      │
-└──────────────────────────────────────────────────────────┘
-                             │
-                    ┌─────────────────┐
-                    │  SQL Server DB  │
-                    │   (TaskifyDb)   │
-                    └─────────────────┘
++----------------------------------------------------------+
+|                     Controllers                          |
+|        (TasksController, AuthController)                 |
++----------------------------------------------------------+
+                          |
+                          v
++----------------------------------------------------------+
+|                      Services                            |
+|          (TaskService, AuthService)                      |
++----------------------------------------------------------+
+                          |
+                          v
++----------------------------------------------------------+
+|                    Repositories                          |
+|              (TaskRepository)                            |
++----------------------------------------------------------+
+                          |
+                          v
++----------------------------------------------------------+
+|                 DbContext (EF Core)                      |
+|              (ApplicationDbContext)                      |
++----------------------------------------------------------+
+                          |
+                          v
+                  +-----------------+
+                  | SQL Server DB   |
+                  |  (TaskifyDb)    |
+                  +-----------------+
 ```
 
 ### **Database Schema**
 ```
-┌─────────────────┐         ┌──────────────────┐
-│     Users       │         │      Tasks       │
-├─────────────────┤         ├──────────────────┤
-│ Id (PK)         │◄───┐    │ Id (PK)          │
-│ Username        │     │    │ Title            │
-│ Email           │     │    │ Description      │
-│ PasswordHash    │     └────│ UserId (FK)      │
-│ FirstName       │          │ DueDate          │
-│ LastName        │          │ Priority         │
-│ Role            │          │ Status           │
-│ IsActive        │          │ CreatedAt        │
-│ CreatedAt       │          │ UpdatedAt        │
-│ UpdatedAt       │          └──────────────────┘
-└─────────────────┘
-   1       :       N
++------------------+                +------------------+
+|     Users        |                |      Tasks       |
++------------------+                +------------------+
+| Id (PK)          |<----------+    | Id (PK)          |
+| Username         |           |    | Title            |
+| Email            |           |    | Description      |
+| PasswordHash     |           +----| UserId (FK)      |
+| FirstName        |                | DueDate          |
+| LastName         |                | Priority         |
+| Role             |                | Status           |
+| IsActive         |                | CreatedAt        |
+| CreatedAt        |                | UpdatedAt        |
+| UpdatedAt        |                +------------------+
++------------------+
+
+      1       :       N
    (One User has Many Tasks)
    Cascade Delete Enabled
 ```
