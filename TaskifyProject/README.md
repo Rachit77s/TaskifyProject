@@ -127,7 +127,7 @@ This will:
 dotnet run
 ```
 
-? **Backend is now running on:** `http://localhost:5226`
+**Backend is now running on:** `http://localhost:5226`
 
 **Verify:** Open `http://localhost:5226/` in your browser to see Swagger UI
 
@@ -168,7 +168,7 @@ const API_BASE_URL = 'http://localhost:5226/api';
 npm start
 ```
 
-? **Frontend is now running on:** `http://localhost:3000`
+**Frontend is now running on:** `http://localhost:3000`
 
 The browser will automatically open to the login page.
 
@@ -188,16 +188,16 @@ The browser will automatically open to the login page.
    - Fully functional task management
 
 3. **Try these actions:**
-   - ? Create a new task
-   - ? Edit existing task
-   - ? Toggle task status
-   - ? Filter by priority/status
-   - ? Delete a task
-   - ? Logout and login
+   - Create a new task
+   - Edit existing task
+   - Toggle task status
+   - Filter by priority/status
+   - Delete a task
+   - Logout and login
 
 ---
 
-## ?? **Test Credentials**
+## 👥 **Test Credentials**
 
 | Username | Password | Role | Tasks | Use Case |
 |----------|----------|------|-------|----------|
@@ -207,7 +207,7 @@ The browser will automatically open to the login page.
 
 ---
 
-## ?? **API Documentation**
+## 📚 **API Documentation**
 
 ### **Swagger UI**
 **URL:** `http://localhost:5226/`
@@ -230,7 +230,7 @@ The browser will automatically open to the login page.
 2. Click `POST /api/auth/login`
 3. Try it out with test credentials
 4. Copy the `token` from response
-5. Click **"Authorize"** button (?? icon)
+5. Click **"Authorize"** button (lock icon)
 6. Enter: `Bearer <your-token>`
 7. Click "Authorize" then "Close"
 8. Now you can test all protected endpoints!
@@ -243,7 +243,7 @@ The browser will automatically open to the login page.
 
 ---
 
-## ??? **Technology Stack**
+## 🛠️ **Technology Stack**
 
 ### **Backend**
 - **.NET 10** - Latest .NET framework
@@ -263,123 +263,123 @@ The browser will automatically open to the login page.
 
 ---
 
-## ?? **Project Structure**
+## 📁 **Project Structure**
 
 ```
 TaskifyProject/                    # Backend
-??? Controllers/                   # API Controllers
-?   ??? AuthController.cs         # Authentication endpoints
-?   ??? TasksController.cs        # Task CRUD endpoints
-??? Data/                         # Database context & seeding
-?   ??? ApplicationDbContext.cs  # EF Core DbContext
-?   ??? DatabaseSeeder.cs        # Seed initial data
-??? Middleware/                   # Custom middleware
-?   ??? GlobalExceptionMiddleware.cs
-??? Models/
-?   ??? Configuration/            # App configuration
-?   ?   ??? JwtSettings.cs
-?   ??? DTOs/                     # Data transfer objects
-?   ?   ??? Auth/                # Auth DTOs
-?   ?   ??? Common/              # Shared DTOs
-?   ?   ??? Tasks/               # Task DTOs
-?   ??? Entities/                 # Database entities
-?   ?   ??? User.cs
-?   ?   ??? TaskItem.cs
-?   ??? Enums/                    # Enumerations
-?       ??? TaskPriority.cs
-?       ??? TaskStatus.cs
-??? Repositories/                 # Data access layer
-?   ??? ITaskRepository.cs
-?   ??? TaskRepository.cs
-??? Services/                     # Business logic
-?   ??? IAuthService.cs
-?   ??? AuthService.cs
-?   ??? ITaskService.cs
-?   ??? TaskService.cs
-??? appsettings.json             # Configuration
-??? Program.cs                   # App entry point
+├── Controllers/                   # API Controllers
+│   ├── AuthController.cs         # Authentication endpoints
+│   └── TasksController.cs        # Task CRUD endpoints
+├── Data/                         # Database context & seeding
+│   ├── ApplicationDbContext.cs  # EF Core DbContext
+│   └── DatabaseSeeder.cs        # Seed initial data
+├── Middleware/                   # Custom middleware
+│   └── GlobalExceptionMiddleware.cs
+├── Models/
+│   ├── Configuration/            # App configuration
+│   │   └── JwtSettings.cs
+│   ├── DTOs/                     # Data transfer objects
+│   │   ├── Auth/                # Auth DTOs
+│   │   ├── Common/              # Shared DTOs
+│   │   └── Tasks/               # Task DTOs
+│   ├── Entities/                 # Database entities
+│   │   ├── User.cs
+│   │   └── TaskItem.cs
+│   └── Enums/                    # Enumerations
+│       ├── TaskPriority.cs
+│       └── TaskStatus.cs
+├── Repositories/                 # Data access layer
+│   ├── ITaskRepository.cs
+│   └── TaskRepository.cs
+├── Services/                     # Business logic
+│   ├── IAuthService.cs
+│   ├── AuthService.cs
+│   ├── ITaskService.cs
+│   └── TaskService.cs
+├── appsettings.json             # Configuration
+└── Program.cs                   # App entry point
 
 taskify-frontend/                 # Frontend
-??? src/
-?   ??? components/              # React components
-?   ?   ??? FilterBar.js
-?   ?   ??? ProtectedRoute.js
-?   ?   ??? TaskForm.js
-?   ?   ??? TaskList.js
-?   ??? context/                 # React Context
-?   ?   ??? AuthContext.js      # Auth state management
-?   ??? pages/                   # Page components
-?   ?   ??? Dashboard.js        # Main app
-?   ?   ??? Login.js
-?   ?   ??? Register.js
-?   ??? services/                # API services
-?   ?   ??? taskService.js      # API calls
-?   ??? App.css
-?   ??? App.js                  # Main app with routing
-?   ??? index.js                # App entry point
-??? package.json                # Dependencies
+├── src/
+│   ├── components/              # React components
+│   │   ├── FilterBar.js
+│   │   ├── ProtectedRoute.js
+│   │   ├── TaskForm.js
+│   │   └── TaskList.js
+│   ├── context/                 # React Context
+│   │   └── AuthContext.js      # Auth state management
+│   ├── pages/                   # Page components
+│   │   ├── Dashboard.js        # Main app
+│   │   ├── Login.js
+│   │   └── Register.js
+│   ├── services/                # API services
+│   │   └── taskService.js      # API calls
+│   ├── App.css
+│   ├── App.js                  # Main app with routing
+│   └── index.js                # App entry point
+└── package.json                # Dependencies
 ```
 
 ---
 
-## ?? **Security Features**
+## **Security Features**
 
-- ? **JWT Token Authentication** - Secure, stateless authentication
-- ? **BCrypt Password Hashing** - 12 rounds of hashing
-- ? **User-Specific Data Isolation** - Users can only access their own data
-- ? **Protected API Endpoints** - All task endpoints require authentication
-- ? **Role-Based Authorization** - Admin and User roles
-- ? **CORS Configuration** - Controlled cross-origin requests
-- ? **Token Expiration** - 60-minute token lifetime
-- ? **Auto Logout on Expiry** - Frontend handles 401 errors
-- ? **Unique Constraints** - Username and Email uniqueness enforced
-- ? **Cascade Delete** - User deletion removes their tasks
+- **JWT Token Authentication** - Secure, stateless authentication
+- **BCrypt Password Hashing** - 12 rounds of hashing
+- **User-Specific Data Isolation** - Users can only access their own data
+- **Protected API Endpoints** - All task endpoints require authentication
+- **Role-Based Authorization** - Admin and User roles
+- **CORS Configuration** - Controlled cross-origin requests
+- **Token Expiration** - 60-minute token lifetime
+- **Auto Logout on Expiry** - Frontend handles 401 errors
+- **Unique Constraints** - Username and Email uniqueness enforced
+- **Cascade Delete** - User deletion removes their tasks
 
 ---
 
-## ?? **Key Features**
+## **Key Features**
 
 ### **Backend Features**
-- ? Complete CRUD operations for tasks
-- ? JWT authentication and authorization
-- ? User registration and login
-- ? Password hashing with BCrypt
-- ? User-specific task management
-- ? Filtering by status and priority
-- ? Pagination support
-- ? Global exception handling
-- ? Database seeding with test data
-- ? Swagger API documentation
-- ? RESTful API design
-- ? Layered architecture
-- ? Repository pattern
-- ? Dependency injection
+- Complete CRUD operations for tasks
+- JWT authentication and authorization
+- User registration and login
+- Password hashing with BCrypt
+- User-specific task management
+- Filtering by status and priority
+- Pagination support
+- Global exception handling
+- Database seeding with test data
+- Swagger API documentation
+- RESTful API design
+- Layered architecture
+- Repository pattern
+- Dependency injection
 
 ### **Frontend Features**
-- ? User authentication (login/register)
-- ? Protected routes
-- ? Task CRUD operations
-- ? Filter by status and priority
-- ? Responsive design
-- ? User information display
-- ? Logout functionality
-- ? Beautiful gradient UI
-- ? Loading states
-- ? Error handling
-- ? Form validation
-- ? Auto token management
-- ? Session persistence
+- User authentication (login/register)
+- Protected routes
+- Task CRUD operations
+- Filter by status and priority
+- Responsive design
+- User information display
+- Logout functionality
+- Beautiful gradient UI
+- Loading states
+- Error handling
+- Form validation
+- Auto token management
+- Session persistence
 
 ---
 
-## ?? **Testing**
+## 🧪 **Testing**
 
 ### **Test with Swagger:**
 1. Start backend (`dotnet run`)
 2. Open `http://localhost:5226/`
 3. POST `/api/auth/login` with test credentials
 4. Copy the JWT token from response
-5. Click "Authorize" button (??)
+5. Click "Authorize" button (lock icon)
 6. Enter `Bearer <your-token>`
 7. Test all protected endpoints
 
@@ -398,7 +398,7 @@ taskify-frontend/                 # Frontend
 
 ---
 
-## ?? **Database Reset**
+## 🔄 **Database Reset**
 
 If you need to reset the database:
 
@@ -413,7 +413,7 @@ Database will auto-seed with 3 users and 14 tasks.
 
 ---
 
-## ?? **Troubleshooting**
+## 🔧 **Troubleshooting**
 
 **Backend not starting?**
 - Ensure .NET 10 SDK is installed (`dotnet --version`)
@@ -445,10 +445,10 @@ Database will auto-seed with 3 users and 14 tasks.
 
 ---
 
-## ?? **License**
+## 📝 **License**
 
 This project is for educational purposes.
 
 ---
 
-**Built with ?? using .NET 10 and React**
+**Built with .NET 10 and React**
