@@ -49,19 +49,16 @@ TaskifyProject/
 - Due date tracking
 - Advanced filtering and search
 
-### 🎨 User Interface
-- Modern, responsive design
-- Gradient-based UI with smooth animations
-- Real-time task updates
-- Visual dashboard with statistics
-- Mobile-friendly interface
-
-### 🏗️ Architecture
+### ️ Architecture
 - RESTful API design
 - Layered architecture (Controllers → Services → Repositories)
 - Entity Framework Core with Code-First migrations
 - Context API for state management (Frontend)
 - Global error handling middleware
+
+> 📖 **For detailed feature descriptions and architecture details:**
+> - Frontend features: [taskify-frontend/README.md](taskify-frontend/README.md)
+> - Backend architecture: [TaskifyProject/README.md](TaskifyProject/README.md)
 
 ---
 
@@ -69,8 +66,8 @@ TaskifyProject/
 
 ### Prerequisites
 
-- **Node.js** (v16 or higher)
-- **.NET SDK** (10.0 or higher)
+- **Node.js** (v16 or higher) - [Download here](https://nodejs.org/)
+- **.NET SDK** (10.0 or higher) - [Download here](https://dotnet.microsoft.com/download)
 - **SQL Server** (LocalDB or full instance)
 - **Git**
 
@@ -81,16 +78,18 @@ git clone https://github.com/Rachit77s/TaskifyProject.git
 cd TaskifyProject
 ```
 
-### 2️⃣ Setup Backend
+---
+
+### 2️⃣ Backend Setup (.NET Web API)
+
+Navigate to the backend folder and follow these steps:
 
 ```bash
+# Navigate to backend
 cd TaskifyProject
 
-# Restore dependencies
+# Restore NuGet packages
 dotnet restore
-
-# Update connection string in appsettings.json if needed
-# Default uses SQL Server LocalDB
 
 # Apply database migrations
 dotnet ef database update
@@ -99,31 +98,48 @@ dotnet ef database update
 dotnet run
 ```
 
-**Backend will run on:** `https://localhost:5226` or `http://localhost:5000`
+✅ **Backend is now running at:** `https://localhost:5226` or `http://localhost:5000`
 
-📖 **For detailed backend setup and API documentation, see:** [TaskifyProject/README.md](TaskifyProject/README.md)
+> 📖 **For detailed backend setup, API documentation, and troubleshooting:**  
+> See [TaskifyProject/README.md](TaskifyProject/README.md) or [TaskifyProject/QUICKSTART.md](TaskifyProject/QUICKSTART.md)
 
-### 3️⃣ Setup Frontend
+**Note:** The default connection string uses SQL Server LocalDB. If you need to change it, edit `appsettings.json`.
+
+---
+
+### 3️⃣ Frontend Setup (React App)
+
+Open a **new terminal** and navigate to the frontend folder:
 
 ```bash
-cd ../taskify-frontend
+# Navigate to frontend (from project root)
+cd taskify-frontend
 
-# Install dependencies
+# Install npm dependencies
 npm install
 
-# Create .env file (copy from .env.example)
-cp .env.example .env
+# Create environment file
+copy .env.example .env
+# For Mac/Linux: cp .env.example .env
 
-# Update REACT_APP_API_BASE_URL in .env if needed
-# Default: http://localhost:5226/api
-
-# Start the React app
+# Start the React development server
 npm start
 ```
 
-**Frontend will run on:** `http://localhost:3000`
+✅ **Frontend is now running at:** `http://localhost:3000`
 
-📖 **For detailed frontend setup and features, see:** [taskify-frontend/README.md](taskify-frontend/README.md)
+> 📖 **For detailed frontend setup, features, and configuration:**  
+> See [taskify-frontend/README.md](taskify-frontend/README.md)
+
+**Note:** Update `REACT_APP_API_BASE_URL` in `.env` if your backend runs on a different port.
+
+---
+
+### 4️⃣ Verify Setup
+
+1. **Backend**: Open `https://localhost:5226/swagger` to see API documentation
+2. **Frontend**: Open `http://localhost:3000` to access the application
+3. **Test**: Register a new user and create your first task!
 
 ---
 
@@ -183,72 +199,6 @@ npm start
 - `UserId` (Foreign Key)
 - `CreatedAt`
 - `UpdatedAt`
-
----
-
-## 🧪 Testing
-
-### Backend Testing
-```bash
-cd TaskifyProject
-
-# Run unit tests (if available)
-dotnet test
-
-# Test API endpoints using included files:
-# - TaskifyProject.http
-# - Taskify_API.postman_collection.json
-```
-
-### Frontend Testing
-```bash
-cd taskify-frontend
-
-# Run tests
-npm test
-
-# Run tests with coverage
-npm test -- --coverage
-```
-
----
-
-## 📦 Deployment
-
-### Backend Deployment
-- Can be deployed to **Azure App Service**, **AWS EC2**, or **IIS**
-- Update connection string for production database
-- Configure CORS for production frontend URL
-- Set appropriate JWT secret in production environment
-
-### Frontend Deployment
-- Can be deployed to **Vercel**, **Netlify**, or **Azure Static Web Apps**
-- Update `REACT_APP_API_BASE_URL` to production backend URL
-- Run `npm run build` to create optimized production build
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is open source and available for educational purposes.
-
----
-
-## 📧 Contact
-
-**Repository:** [https://github.com/Rachit77s/TaskifyProject](https://github.com/Rachit77s/TaskifyProject)
 
 ---
 
